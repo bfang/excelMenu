@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "RibbonDemo", "RibbonDemo\RibbonDemo.vbproj", "{E64C063D-ADE9-47C6-96C0-AF933FA66D0D}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "RibbonDemoSetup", "RibbonDemoSetup\RibbonDemoSetup.vdproj", "{C5AE92AA-44F9-46A4-A2D4-50384C4B1883}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E64C063D-ADE9-47C6-96C0-AF933FA66D0D}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{E64C063D-ADE9-47C6-96C0-AF933FA66D0D}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{E64C063D-ADE9-47C6-96C0-AF933FA66D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E64C063D-ADE9-47C6-96C0-AF933FA66D0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5AE92AA-44F9-46A4-A2D4-50384C4B1883}.Debug|Any CPU.ActiveCfg = Release
+		{C5AE92AA-44F9-46A4-A2D4-50384C4B1883}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

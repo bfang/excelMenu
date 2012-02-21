@@ -1,0 +1,30 @@
+﻿<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" loadImage="LoadImage" >
+  <ribbon startFromScratch="false">
+    <tabs>
+      <tab id="tab1" label="BioInfo Analysis" keytip="z" >
+        <group id="group1" label="NTSYSpc">
+          <button id="button1"
+              enabled="true"
+              getLabel="GetLabel"
+              keytip="A1"
+              getScreentip="GetScreentip"
+              supertip="This is a supertip for the button."
+              getShowLabel="GetShowLabel"
+              getShowImage="GetShowImage"
+              getSize="GetSize"
+              visible="true"
+              image="camera.bmp"
+              onAction="OnAction" />
+          <button id="button2"
+              getLabel="GetLabel"
+              getShowLabel="GetShowLabel"
+              size="normal"
+              keytip="A2"
+              imageMso="TableDrawTable"
+              onAction="OnAction" />
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>
+
