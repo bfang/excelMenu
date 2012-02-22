@@ -48,27 +48,35 @@ Public Class Connect
     Public Function GetLabel(ByVal control As IRibbonControl) As String
         Dim strLabel As String = ""
         Select Case control.Id
-            Case "button1" : strLabel = "Launch Nodepad"
-            Case "button2" : strLabel = "Insert More Text"
+            Case "button1" : strLabel = "Launch NTSYSpc Notepad for now"
+            Case "button2" : strLabel = "Data Entry Form"
         End Select
         Return strLabel
     End Function
 
     Public Function GetScreenTip(ByVal control As IRibbonControl) As String
-        Return "Inserts text into the active worksheet."
+        Return "Launch NTSYSpc load data from current sheet"
     End Function
 
     Public Sub OnAction(ByVal control As IRibbonControl)
-        MsgBox("Button clicked")
 
-        Shell("notepad.exe", AppWinStyle.MaximizedFocus, True, -1)
+        MsgBox("Data will be saved for NTSYSpc analysis, Excel file will be closed.")
 
-        Select Case control.Id
-            Case "button1" : applicationObject.Range("A1").Value = _
-                "This button inserts text."
-            Case "button2" : applicationObject.Range("A1").Value = _
-                "This button inserts more text."
-        End Select
+        If My.Computer.FileSystem.FileExists("c:\temp\output.csv") Then
+            My.Computer.FileSystem.DeleteFile("c:\temp\output.csv")
+        End If
+        applicationObject.ActiveWorkbook.SaveAs("c:\temp\output.csv", Excel.XlFileFormat.xlCSV)
+        applicationObject.ActiveWorkbook.Close(False)
+        '        MsgBox("open output file c:\temp\output.csv use notepad")
+
+        Shell("notepad.exe c:\temp\output.csv", AppWinStyle.MaximizedFocus, True, -1)
+
+        '        Select Case control.Id
+        '            Case "button1" : applicationObject.Range("A1").Value = _
+        '               "This button inserts text."
+        '          Case "button2" : applicationObject.Range("A1").Value = _
+        '                "This button inserts more text."
+        '        End Select
     End Sub
     Public Function GetShowLabel(ByVal control As IRibbonControl) As Boolean
         Dim bolShow As Boolean

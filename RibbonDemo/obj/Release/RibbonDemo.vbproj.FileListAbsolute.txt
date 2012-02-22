@@ -1,9 +1,0 @@
-C:\Users\Bfang\Documents\Visual Studio 2008\Projects\RibbonDemo\RibbonDemo\bin\RibbonDemo.dll
-C:\Users\Bfang\Documents\Visual Studio 2008\Projects\RibbonDemo\RibbonDemo\bin\RibbonDemo.xml
-C:\Users\Bfang\Documents\Visual Studio 2008\Projects\RibbonDemo\RibbonDemo\bin\RibbonDemo.tlb
-C:\Users\Bfang\Documents\Visual Studio 2008\Projects\RibbonDemo\RibbonDemo\obj\Release\ResolveAssemblyReference.cache
-C:\Users\Bfang\Documents\Visual Studio 2008\Projects\RibbonDemo\RibbonDemo\obj\Release\RibbonDemo.vbproj.ResolveComReference.cache
-C:\Users\Bfang\Documents\Visual Studio 2008\Projects\RibbonDemo\RibbonDemo\obj\Release\RibbonDemo.Resources.resources
-C:\Users\Bfang\Documents\Visual Studio 2008\Projects\RibbonDemo\RibbonDemo\obj\Release\RibbonDemo.vbproj.GenerateResource.Cache
-C:\Users\Bfang\Documents\Visual Studio 2008\Projects\RibbonDemo\RibbonDemo\obj\Release\RibbonDemo.dll
-C:\Users\Bfang\Documents\Visual Studio 2008\Projects\RibbonDemo\RibbonDemo\obj\Release\RibbonDemo.xml

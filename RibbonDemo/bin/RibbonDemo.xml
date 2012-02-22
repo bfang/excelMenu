@@ -17,8 +17,18 @@ RibbonDemo
 </summary>
 </member><member name="P:RibbonDemo.My.Resources.Resources.Ribbon">
 	<summary>
-  Looks up a localized string similar to &lt;?xml version="1.0" encoding="utf-8" ?&gt; 
-.
+  Looks up a localized string similar to &lt;customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" loadImage="LoadImage" &gt;
+  &lt;ribbon startFromScratch="false"&gt;
+    &lt;tabs&gt;
+      &lt;tab id="tab1" label="BioInfo Analysis" keytip="z" &gt;
+        &lt;group id="group1" label="NTSYSpc"&gt;
+          &lt;button id="button1"
+              enabled="true"
+              getLabel="GetLabel"
+              keytip="A1"
+              getScreentip="GetScreentip"
+              supertip="This is a supertip for the button."
+              getShowLabel="GetSho [rest of string was truncated]";.
 </summary>
 </member><member name="T:RibbonDemo.My.Resources.Resources">
 	<summary>

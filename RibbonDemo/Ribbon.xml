@@ -1,14 +1,14 @@
 ﻿<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" loadImage="LoadImage" >
   <ribbon startFromScratch="false">
     <tabs>
-      <tab id="tab1" label="BioInfo Analysis" keytip="z" >
+      <tab id="tab1" label="Analysis" keytip="z" >
         <group id="group1" label="NTSYSpc">
           <button id="button1"
               enabled="true"
               getLabel="GetLabel"
               keytip="A1"
               getScreentip="GetScreentip"
-              supertip="This is a supertip for the button."
+              supertip="Launch NTSYSpc for analysis."
               getShowLabel="GetShowLabel"
               getShowImage="GetShowImage"
               getSize="GetSize"
