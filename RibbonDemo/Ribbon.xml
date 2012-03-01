@@ -1,7 +1,7 @@
 ﻿<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" loadImage="LoadImage" >
   <ribbon startFromScratch="false">
     <tabs>
-      <tab id="tab1" label="Analysis" keytip="z" >
+      <tab id="tab1" label="NTSYS计算" keytip="z" >
         <group id="group1" label="NTSYSpc">
           <button id="button1"
               enabled="true"
@@ -13,13 +13,14 @@
               getShowImage="GetShowImage"
               getSize="GetSize"
               visible="true"
-              image="camera.bmp"
+              image="TableDrawTable"
               onAction="OnAction" />
           <button id="button2"
               getLabel="GetLabel"
               getShowLabel="GetShowLabel"
               size="normal"
               keytip="A2"
+              visible="true"    
               imageMso="TableDrawTable"
               onAction="OnAction" />
         </group>

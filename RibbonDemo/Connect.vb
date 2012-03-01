@@ -48,8 +48,8 @@ Public Class Connect
     Public Function GetLabel(ByVal control As IRibbonControl) As String
         Dim strLabel As String = ""
         Select Case control.Id
-            Case "button1" : strLabel = "Launch NTSYSpc Notepad for now"
-            Case "button2" : strLabel = "Data Entry Form"
+            Case "button1" : strLabel = "启动NTSYS "
+            Case "button2" : strLabel = "启动NTEdit"
         End Select
         Return strLabel
     End Function
@@ -59,30 +59,64 @@ Public Class Connect
     End Function
 
     Public Sub OnAction(ByVal control As IRibbonControl)
+        Dim LaunchCommand As String
+        Dim resp As Long
 
-        MsgBox("Data will be saved for NTSYSpc analysis, Excel file will be closed.")
+        LaunchCommand = "default string"
+        Select Case control.Id
+            Case "button1" : LaunchCommand = GetNTSYSlaunchingCommand()
+            Case "button2" : LaunchCommand = GetNTEditlaunchingCommand()
+        End Select
+
+        If LaunchCommand = "NTSYS not found" Then
+            MsgBox("NTSYS install not found")
+            Return
+        End If
+
+        resp = MsgBox("Data in this sheet will be output to c:\output.csv for NTSYS, Change to Excel file will be saved.", MsgBoxStyle.YesNo, "NTSYS计算")
+
+        If resp = vbNo Then
+            Return
+        End If
 
         If My.Computer.FileSystem.FileExists("c:\temp\output.csv") Then
             My.Computer.FileSystem.DeleteFile("c:\temp\output.csv")
         End If
+
+        applicationObject.ActiveWorkbook.Save()
         applicationObject.ActiveWorkbook.SaveAs("c:\temp\output.csv", Excel.XlFileFormat.xlCSV)
         applicationObject.ActiveWorkbook.Close(False)
-        '        MsgBox("open output file c:\temp\output.csv use notepad")
 
-        Shell("notepad.exe c:\temp\output.csv", AppWinStyle.MaximizedFocus, True, -1)
 
-        '        Select Case control.Id
-        '            Case "button1" : applicationObject.Range("A1").Value = _
-        '               "This button inserts text."
-        '          Case "button2" : applicationObject.Range("A1").Value = _
-        '                "This button inserts more text."
-        '        End Select
+        LaunchCommand = LaunchCommand.Replace("%1", "")
+        LaunchCommand = Chr(34) & LaunchCommand & Chr(34)
+
+        '        MsgBox("Launch command is " & LaunchCommand & " C:\\temp\output.csv")
+
+        Shell(LaunchCommand & " C:\\temp\output.csv", AppWinStyle.MaximizedFocus, True, -1)
+
     End Sub
+
+    Public Function GetNTSYSlaunchingCommand() As String
+        Dim NTSYSCommandKey, KeyValue As String
+        NTSYSCommandKey = "HKEY_CLASSES_ROOT\\.NTB\shell\\Run in NTSYS\\command"
+        KeyValue = My.Computer.Registry.GetValue(NTSYSCommandKey, "", "NTSYS not found").ToString()
+        Return KeyValue
+    End Function
+
+    Public Function GetNTEditlaunchingCommand() As String
+        Dim NTEditCommandKey, KeyValue As String
+        NTEditCommandKey = "HKEY_CLASSES_ROOT\\.NTB\shell\\Open in NTedit\\command"
+        KeyValue = My.Computer.Registry.GetValue(NTEditCommandKey, "", "NTSYS not found").ToString()
+        Return KeyValue
+    End Function
+
+
     Public Function GetShowLabel(ByVal control As IRibbonControl) As Boolean
         Dim bolShow As Boolean
         Select Case control.Id
             Case "button1" : bolShow = True
-            Case "button2" : bolShow = False
+            Case "button2" : bolShow = True
         End Select
         Return bolShow
     End Function
