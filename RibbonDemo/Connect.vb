@@ -99,16 +99,26 @@ Public Class Connect
     End Sub
     Public Sub OnAction_button3(ByVal control As IRibbonControl)
         Dim f As Form1
-        MsgBox("button3 clicked")
+        MsgBox("button3 clicked") 'Data entry requested
         f = New Form1
         f.Show()
     End Sub
     Public Sub OnAction_button4(ByVal control As IRibbonControl)
-        MsgBox("button4 clicked")
+        Dim RowCount, ColumnCount As Integer
+        Dim RowRange, ColumnRange As Excel.Range
+        MsgBox("button4 clicked") 'recalculate rows and columns requested
+
+        RowRange = applicationObject.Range("A3:A10000")
+        ColumnRange = applicationObject.Range("B2:HZ2")
+        RowCount = applicationObject.WorksheetFunction.CountA(RowRange)
+        ColumnCount = applicationObject.WorksheetFunction.CountA(ColumnRange)
+        MsgBox(RowCount & ":" & ColumnCount)
+        Return
+
     End Sub
 
     Public Function GetNTSYSlaunchingCommand() As String
-        Return "NTSYS"
+        '        Return "NTSYS"
         Dim NTSYSCommandKey, KeyValue As String
         NTSYSCommandKey = "HKEY_CLASSES_ROOT\\.NTB\shell\\Run in NTSYS\\command"
         KeyValue = My.Computer.Registry.GetValue(NTSYSCommandKey, "", "NTSYS not found").ToString()
@@ -116,7 +126,7 @@ Public Class Connect
     End Function
 
     Public Function GetNTEditlaunchingCommand() As String
-        Return "NTEdit"
+        '        Return "NTEdit"
         Dim NTEditCommandKey, KeyValue As String
         NTEditCommandKey = "HKEY_CLASSES_ROOT\\.NTB\shell\\Open in NTedit\\command"
         KeyValue = My.Computer.Registry.GetValue(NTEditCommandKey, "", "NTSYS not found").ToString()
