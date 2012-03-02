@@ -11,9 +11,9 @@
               supertip="Launch NTSYSpc for analysis."
               getShowLabel="GetShowLabel"
               getShowImage="GetShowImage"
-              getSize="GetSize"
+              getSize="normal"
               visible="true"
-              image="TableDrawTable"
+              imageMso="TableDrawTable"
               onAction="OnAction" />
           <button id="button2"
               getLabel="GetLabel"
@@ -23,6 +23,27 @@
               visible="true"    
               imageMso="TableDrawTable"
               onAction="OnAction" />
+        </group>
+        <group id="group2" label="Data Entry">
+          <button id="button3"
+              enabled="true"
+              getLabel="GetLabel"
+              keytip="A1"
+              getScreentip="GetScreentip"
+              supertip="super tip text"
+              getShowLabel="GetShowLabel"
+              getSize="GetSize"
+              visible="true"
+              image="TableDrawTable"
+              onAction="OnAction_button3"/>
+          <button id="button4"
+              getLabel="GetLabel"
+              getShowLabel="GetShowLabel"
+              size="normal"
+              keytip="A2"
+              visible="true"
+              imageMso="TableDrawTable"
+              onAction="OnAction_button4" />
         </group>
       </tab>
     </tabs>

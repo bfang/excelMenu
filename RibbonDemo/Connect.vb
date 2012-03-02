@@ -3,7 +3,6 @@ Imports System.Runtime.InteropServices
 Imports Microsoft.Office.Core
 Imports Excel = Microsoft.Office.Interop.Excel
 
-
 #Region " Read me for Add-in installation and setup information. "
 ' When run, the Add-in wizard prepared the registry for the Add-in.
 ' At a later time, if the Add-in becomes unavailable for reasons such as:
@@ -50,6 +49,8 @@ Public Class Connect
         Select Case control.Id
             Case "button1" : strLabel = "启动NTSYS "
             Case "button2" : strLabel = "启动NTEdit"
+            Case "button3" : strLabel = "添加品种"
+            Case "button4" : strLabel = "重算行列"
         End Select
         Return strLabel
     End Function
@@ -96,8 +97,18 @@ Public Class Connect
         Shell(LaunchCommand & " C:\\temp\output.csv", AppWinStyle.MaximizedFocus, True, -1)
 
     End Sub
+    Public Sub OnAction_button3(ByVal control As IRibbonControl)
+        Dim f As Form1
+        MsgBox("button3 clicked")
+        f = New Form1
+        f.Show()
+    End Sub
+    Public Sub OnAction_button4(ByVal control As IRibbonControl)
+        MsgBox("button4 clicked")
+    End Sub
 
     Public Function GetNTSYSlaunchingCommand() As String
+        Return "NTSYS"
         Dim NTSYSCommandKey, KeyValue As String
         NTSYSCommandKey = "HKEY_CLASSES_ROOT\\.NTB\shell\\Run in NTSYS\\command"
         KeyValue = My.Computer.Registry.GetValue(NTSYSCommandKey, "", "NTSYS not found").ToString()
@@ -105,6 +116,7 @@ Public Class Connect
     End Function
 
     Public Function GetNTEditlaunchingCommand() As String
+        Return "NTEdit"
         Dim NTEditCommandKey, KeyValue As String
         NTEditCommandKey = "HKEY_CLASSES_ROOT\\.NTB\shell\\Open in NTedit\\command"
         KeyValue = My.Computer.Registry.GetValue(NTEditCommandKey, "", "NTSYS not found").ToString()
@@ -118,7 +130,8 @@ Public Class Connect
             Case "button1" : bolShow = True
             Case "button2" : bolShow = True
         End Select
-        Return bolShow
+        '        Return bolShow
+        Return True
     End Function
     Public Function GetShowImage(ByVal control As IRibbonControl) As Boolean
         Return True
